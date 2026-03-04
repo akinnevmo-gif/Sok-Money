@@ -4,6 +4,14 @@ if(!localStorage.getItem("sokAffiliate")) localStorage.setItem("sokAffiliate", 0
 if(!localStorage.getItem("sokPosts")) localStorage.setItem("sokPosts", JSON.stringify([]));
 if(!localStorage.getItem("sokProfile")) localStorage.setItem("sokProfile", JSON.stringify({}));
 
+// ===== Menu Overlay Functions =====
+function openMenu() {
+  document.getElementById("menuOverlay").style.left = "0";
+}
+function closeMenu() {
+  document.getElementById("menuOverlay").style.left = "-100%";
+}
+
 // ===== Section Navigation =====
 function showSection(sectionId){
   document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
@@ -21,18 +29,20 @@ function login(){
   showSection('dashboard');
 }
 
-// ===== Dashboard =====
+// ===== Dashboard Functions =====
 function updateBalances(){
   const balances = JSON.parse(localStorage.getItem("sokBalances"));
   const total = Object.values(balances).reduce((a,b)=>a+b,0);
   document.getElementById("balance").innerText = total.toFixed(2);
   document.getElementById("affiliateBalance").innerText = parseFloat(localStorage.getItem("sokAffiliate")).toFixed(2);
 }
+
 function updateCountryBalance(){
   const balances = JSON.parse(localStorage.getItem("sokBalances"));
   const country = document.getElementById("country").value;
   document.getElementById("countryBalance").innerText = balances[country].toFixed(2);
 }
+
 function deposit(){
   const amt = parseFloat(document.getElementById("depositAmount").value);
   if(amt<=0) return alert("Invalid amount");
@@ -43,6 +53,7 @@ function deposit(){
   updateBalances(); updateCountryBalance();
   alert(`Deposited $${amt} (${document.getElementById("depositMethod").value})`);
 }
+
 function withdraw(){
   const amt = parseFloat(document.getElementById("withdrawAmount").value);
   const country = document.getElementById("country").value;
@@ -71,6 +82,7 @@ function saveProfile(){
   localStorage.setItem("sokProfile", JSON.stringify(profile));
   alert("Profile saved locally!");
 }
+
 function loadProfile(){
   const profile = JSON.parse(localStorage.getItem("sokProfile"));
   if(!profile) return;
@@ -94,6 +106,7 @@ function addPost(){
   document.getElementById("postContent").value='';
   loadFeed();
 }
+
 function loadFeed(){
   const posts = JSON.parse(localStorage.getItem("sokPosts")||"[]");
   const feed = document.getElementById("feedPosts");
@@ -115,12 +128,14 @@ function loadFeed(){
     });
   });
 }
+
 function likePost(index){
   const posts = JSON.parse(localStorage.getItem("sokPosts"));
   posts[index].likes+=1;
   localStorage.setItem("sokPosts", JSON.stringify(posts));
   loadFeed();
 }
+
 function commentPost(index){
   const comment = prompt("Enter your comment:");
   if(!comment) return;
@@ -167,6 +182,7 @@ async function convertCurrency(){
   const rate = data.rates[to];
   document.getElementById("result").innerText=`${amount} ${from} = ${(amount*rate).toFixed(2)} ${to}`;
 }
+
 function calculateBudget(){
   const income=parseFloat(document.getElementById("income").value);
   const expenses=parseFloat(document.getElementById("expenses").value);
