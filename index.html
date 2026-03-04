@@ -8,12 +8,7 @@
 
 <!-- Firebase SDK -->
 <script type="module">
-  // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyCyAIL9Ki7OVqgq23LgAQhmFQzN8ZAMtGM",
     authDomain: "bionurse-pro.firebaseapp.com",
@@ -23,8 +18,6 @@
     messagingSenderId: "262309708872",
     appId: "1:262309708872:web:b26529e0283a17aafc447d"
   };
-
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 </script>
 
@@ -33,7 +26,7 @@
 
 <header>
   <h1>Sok-Money 💳</h1>
-  <p class="creator">Created by <a href="https://www.facebook.com/share/18E8wSJSxj/?mibextid=wwXIfr" target="_blank">Akin S. Sokpah 🇱🇷</a></p>
+  <p class="creator"><a href="https://www.facebook.com/share/18E8wSJSxj/?mibextid=wwXIfr" target="_blank">Created by Akin S. Sokpah 🇱🇷</a></p>
 </header>
 
 <!-- Main Menu -->
@@ -48,8 +41,6 @@
 </nav>
 
 <!-- Sections -->
-
-<!-- HOME -->
 <section id="home" class="section active">
   <h2>Welcome to Sok-Money</h2>
   <p>Your West African finance & social app simulation</p>
@@ -57,12 +48,10 @@
   <button onclick="login()">Enter</button>
 </section>
 
-<!-- DASHBOARD -->
 <section id="dashboard" class="section">
   <h2>Dashboard</h2>
   <h3 id="welcome"></h3>
   <p>Total Balance: $<span id="balance">0.00</span></p>
-
   <div class="card">
     <h4>Country Balances</h4>
     <select id="country" onchange="updateCountryBalance()">
@@ -73,7 +62,6 @@
     </select>
     <p>Balance in selected country: $<span id="countryBalance">0.00</span></p>
   </div>
-
   <div class="card">
     <h4>Deposit Money (Simulated)</h4>
     <input type="number" id="depositAmount" placeholder="Amount">
@@ -83,7 +71,6 @@
     </select>
     <button onclick="deposit()">Deposit</button>
   </div>
-
   <div class="card">
     <h4>Withdraw Money (Simulated)</h4>
     <input type="number" id="withdrawAmount" placeholder="Amount">
@@ -95,7 +82,6 @@
   </div>
 </section>
 
-<!-- TOOLS -->
 <section id="tools" class="section">
   <h2>Tools</h2>
   <div class="card">
@@ -106,7 +92,6 @@
     <button onclick="convertCurrency()">Convert</button>
     <h3 id="result"></h3>
   </div>
-
   <div class="card">
     <h4>Budget Planner</h4>
     <input type="number" id="income" placeholder="Monthly Income">
@@ -116,7 +101,6 @@
   </div>
 </section>
 
-<!-- PROFILE -->
 <section id="profile" class="section">
   <h2>Your Profile</h2>
   <p>Edit your personal info and profile picture</p>
@@ -133,7 +117,6 @@
   <button onclick="saveProfile()">Save Profile</button>
 </section>
 
-<!-- FEED -->
 <section id="feed" class="section">
   <h2>Global Feed (Simulation)</h2>
   <div class="card">
@@ -143,7 +126,6 @@
   <div id="feedPosts"></div>
 </section>
 
-<!-- AFFILIATE -->
 <section id="affiliate" class="section">
   <h2>Affiliate Income Tracker</h2>
   <div class="card">
@@ -159,7 +141,6 @@
   </div>
 </section>
 
-<!-- SUPPORT -->
 <section id="support" class="section">
   <h2>Support Center</h2>
   <p>Help us reach our goal to make Sok-Money real!</p>
