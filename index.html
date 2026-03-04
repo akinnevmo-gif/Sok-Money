@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sok-Money 💳</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Sok-Money 💳</h1>
+</header>
+
+<nav class="bottom-nav">
+  <button onclick="showSection('home')">Home</button>
+  <button onclick="showSection('dashboard')">Dashboard</button>
+  <button onclick="showSection('tools')">Tools</button>
+  <button onclick="showSection('affiliate')">Affiliate</button>
+</nav>
+
+<!-- HOME / LOGIN -->
+<section id="home" class="section active">
+  <h2>Welcome to Sok-Money</h2>
+  <p>Your West African personal finance hub (Simulation)</p>
+  <input type="text" id="username" placeholder="Enter username">
+  <button onclick="login()">Enter</button>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="section">
+  <h2>Dashboard</h2>
+  <h3 id="welcome"></h3>
+  <p>Total Balance: $<span id="balance">0.00</span></p>
+
+  <!-- Multi-country balances -->
+  <div class="card">
+    <h4>Country Balances</h4>
+    <select id="country" onchange="updateCountryBalance()">
+      <option value="LR">Liberia</option>
+      <option value="GH">Ghana</option>
+      <option value="NG">Nigeria</option>
+      <option value="SN">Senegal</option>
+    </select>
+    <p>Balance in selected country: $<span id="countryBalance">0.00</span></p>
+  </div>
+
+  <!-- Deposit / Withdraw -->
+  <div class="card">
+    <h4>Deposit Money (Simulated)</h4>
+    <input type="number" id="depositAmount" placeholder="Amount">
+    <select id="depositMethod">
+      <option value="Orange Money">Orange Money</option>
+      <option value="Lonestar MTN">Lonestar MTN</option>
+    </select>
+    <button onclick="deposit()">Deposit</button>
+  </div>
+
+  <div class="card">
+    <h4>Withdraw Money (Simulated)</h4>
+    <input type="number" id="withdrawAmount" placeholder="Amount">
+    <select id="withdrawMethod">
+      <option value="Orange Money">Orange Money</option>
+      <option value="Lonestar MTN">Lonestar MTN</option>
+    </select>
+    <button onclick="withdraw()">Withdraw</button>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools" class="section">
+  <h2>Tools</h2>
+
+  <!-- Currency Converter -->
+  <div class="card">
+    <h4>Currency Converter</h4>
+    <input type="number" id="amount" value="1">
+    <select id="fromCurrency"></select>
+    <select id="toCurrency"></select>
+    <button onclick="convertCurrency()">Convert</button>
+    <h3 id="result"></h3>
+  </div>
+
+  <!-- Budget Planner -->
+  <div class="card">
+    <h4>Budget Planner</h4>
+    <input type="number" id="income" placeholder="Monthly Income">
+    <input type="number" id="expenses" placeholder="Monthly Expenses">
+    <button onclick="calculateBudget()">Calculate Savings</button>
+    <h3 id="budgetResult"></h3>
+  </div>
+</section>
+
+<!-- AFFILIATE -->
+<section id="affiliate" class="section">
+  <h2>Affiliate Income Tracker</h2>
+  <div class="card">
+    <h4>Total Earned: $<span id="affiliateBalance">0.00</span></h4>
+    <button onclick="addAffiliate()">Add Income</button>
+    <p>Suggested affiliates for Liberia:</p>
+    <ul>
+      <li>Expertnaire – African digital products</li>
+      <li>Fiverr – Freelance marketplace</li>
+      <li>Jumia – E-commerce</li>
+      <li>Binance – Cryptocurrency referrals</li>
+    </ul>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
