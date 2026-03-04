@@ -24,6 +24,42 @@
 </head>
 <body>
 
+<!-- Hamburger menu icon -->
+<div id="menuIcon" onclick="openMenu()">☰</div>
+
+<!-- Menu overlay -->
+<div id="menuOverlay">
+  <div id="closeMenu" onclick="closeMenu()">✖</div>
+  <h2>Sok-Money Menu</h2>
+  <ul class="menuList">
+    <li onclick="showSection('home'); closeMenu()">Home</li>
+    <li onclick="showSection('dashboard'); closeMenu()">Dashboard</li>
+    <li onclick="showSection('tools'); closeMenu()">Tools</li>
+    <li onclick="showSection('profile'); closeMenu()">Profile</li>
+    <li onclick="showSection('feed'); closeMenu()">Feed</li>
+    <li onclick="showSection('affiliate'); closeMenu()">Affiliate</li>
+    <li onclick="showSection('support'); closeMenu()">Support</li>
+  </ul>
+  <h3>Top 15 Recommended Features</h3>
+  <ul class="menuList">
+    <li onclick="showSection('tools'); closeMenu()">Currency Converter</li>
+    <li onclick="showSection('tools'); closeMenu()">Budget Planner</li>
+    <li onclick="showSection('dashboard'); closeMenu()">Multi-Country Wallet</li>
+    <li onclick="showSection('dashboard'); closeMenu()">Deposit Money</li>
+    <li onclick="showSection('dashboard'); closeMenu()">Withdraw Money</li>
+    <li onclick="showSection('profile'); closeMenu()">Profile Edit</li>
+    <li onclick="showSection('feed'); closeMenu()">Post Update</li>
+    <li onclick="showSection('feed'); closeMenu()">Like & Comment</li>
+    <li onclick="showSection('affiliate'); closeMenu()">Affiliate Tracker</li>
+    <li onclick="showSection('support'); closeMenu()">Support Center</li>
+    <li onclick="showSection('dashboard'); closeMenu()">Check Balance</li>
+    <li onclick="showSection('dashboard'); closeMenu()">Country Balance</li>
+    <li onclick="showSection('tools'); closeMenu()">Savings Calculator</li>
+    <li onclick="showSection('tools'); closeMenu()">Currency Rates</li>
+    <li onclick="showSection('profile'); closeMenu()">Upload Profile/Cover Pic</li>
+  </ul>
+</div>
+
 <header>
   <h1>Sok-Money 💳</h1>
   <p class="creator">
@@ -32,17 +68,6 @@
     </a>
   </p>
 </header>
-
-<!-- Main Menu -->
-<nav class="main-menu">
-  <button onclick="showSection('home')">Home</button>
-  <button onclick="showSection('dashboard')">Dashboard</button>
-  <button onclick="showSection('tools')">Tools</button>
-  <button onclick="showSection('profile')">Profile</button>
-  <button onclick="showSection('feed')">Feed</button>
-  <button onclick="showSection('affiliate')">Affiliate</button>
-  <button onclick="showSection('support')">Support</button>
-</nav>
 
 <!-- Sections -->
 <section id="home" class="section active">
