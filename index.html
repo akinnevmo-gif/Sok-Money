@@ -5,24 +5,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sok-Money 💳</title>
 <link rel="stylesheet" href="style.css">
+
+<!-- Firebase SDK -->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCyAIL9Ki7OVqgq23LgAQhmFQzN8ZAMtGM",
+    authDomain: "bionurse-pro.firebaseapp.com",
+    databaseURL: "https://bionurse-pro-default-rtdb.firebaseio.com",
+    projectId: "bionurse-pro",
+    storageBucket: "bionurse-pro.firebasestorage.app",
+    messagingSenderId: "262309708872",
+    appId: "1:262309708872:web:b26529e0283a17aafc447d"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
+
 </head>
 <body>
 
 <header>
   <h1>Sok-Money 💳</h1>
+  <p class="creator">Created by <a href="https://www.facebook.com/share/18E8wSJSxj/?mibextid=wwXIfr" target="_blank">Akin S. Sokpah 🇱🇷</a></p>
 </header>
 
-<nav class="bottom-nav">
+<!-- Main Menu -->
+<nav class="main-menu">
   <button onclick="showSection('home')">Home</button>
   <button onclick="showSection('dashboard')">Dashboard</button>
   <button onclick="showSection('tools')">Tools</button>
+  <button onclick="showSection('profile')">Profile</button>
+  <button onclick="showSection('feed')">Feed</button>
   <button onclick="showSection('affiliate')">Affiliate</button>
+  <button onclick="showSection('support')">Support</button>
 </nav>
 
-<!-- HOME / LOGIN -->
+<!-- Sections -->
+
+<!-- HOME -->
 <section id="home" class="section active">
   <h2>Welcome to Sok-Money</h2>
-  <p>Your West African personal finance hub (Simulation)</p>
+  <p>Your West African finance & social app simulation</p>
   <input type="text" id="username" placeholder="Enter username">
   <button onclick="login()">Enter</button>
 </section>
@@ -33,7 +63,6 @@
   <h3 id="welcome"></h3>
   <p>Total Balance: $<span id="balance">0.00</span></p>
 
-  <!-- Multi-country balances -->
   <div class="card">
     <h4>Country Balances</h4>
     <select id="country" onchange="updateCountryBalance()">
@@ -45,7 +74,6 @@
     <p>Balance in selected country: $<span id="countryBalance">0.00</span></p>
   </div>
 
-  <!-- Deposit / Withdraw -->
   <div class="card">
     <h4>Deposit Money (Simulated)</h4>
     <input type="number" id="depositAmount" placeholder="Amount">
@@ -70,8 +98,6 @@
 <!-- TOOLS -->
 <section id="tools" class="section">
   <h2>Tools</h2>
-
-  <!-- Currency Converter -->
   <div class="card">
     <h4>Currency Converter</h4>
     <input type="number" id="amount" value="1">
@@ -81,7 +107,6 @@
     <h3 id="result"></h3>
   </div>
 
-  <!-- Budget Planner -->
   <div class="card">
     <h4>Budget Planner</h4>
     <input type="number" id="income" placeholder="Monthly Income">
@@ -89,6 +114,33 @@
     <button onclick="calculateBudget()">Calculate Savings</button>
     <h3 id="budgetResult"></h3>
   </div>
+</section>
+
+<!-- PROFILE -->
+<section id="profile" class="section">
+  <h2>Your Profile</h2>
+  <p>Edit your personal info and profile picture</p>
+  <input type="text" id="fullName" placeholder="Full Name">
+  <input type="text" id="dob" placeholder="Date of Birth">
+  <input type="text" id="nationality" placeholder="Nationality">
+  <input type="text" id="countryResidence" placeholder="Country of Residence">
+  <input type="email" id="email" placeholder="Email">
+  <input type="tel" id="contact" placeholder="Contact">
+  <input type="text" id="parent" placeholder="Parent Name">
+  <input type="password" id="2fa" placeholder="2FA Code">
+  <input type="file" id="profilePic" accept="image/*">
+  <input type="file" id="coverPic" accept="image/*">
+  <button onclick="saveProfile()">Save Profile</button>
+</section>
+
+<!-- FEED -->
+<section id="feed" class="section">
+  <h2>Global Feed (Simulation)</h2>
+  <div class="card">
+    <textarea id="postContent" placeholder="Write a post..."></textarea>
+    <button onclick="addPost()">Post</button>
+  </div>
+  <div id="feedPosts"></div>
 </section>
 
 <!-- AFFILIATE -->
@@ -107,6 +159,15 @@
   </div>
 </section>
 
-<script src="script.js"></script>
+<!-- SUPPORT -->
+<section id="support" class="section">
+  <h2>Support Center</h2>
+  <p>Help us reach our goal to make Sok-Money real!</p>
+  <p>Send support (simulation only) to <strong>0889183557</strong></p>
+  <textarea id="supportMessage" placeholder="Write a message to support"></textarea>
+  <button onclick="sendSupport()">Send Message</button>
+</section>
+
+<script type="module" src="script.js"></script>
 </body>
 </html>
